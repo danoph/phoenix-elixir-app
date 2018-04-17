@@ -10,10 +10,11 @@ config :api, ApiWeb.Endpoint,
 config :logger, level: :warn
 
 # Configure your database
+# change these to env variables for docker-compose
 config :api, Api.Repo,
   adapter: Ecto.Adapters.Postgres,
-  username: "postgres",
-  password: "postgres",
-  database: "api_test",
+  username: "evergreen_db_user",
+  password: "db_password",
+  database: "evergreen_api_test",
   hostname: "localhost",
   pool: Ecto.Adapters.SQL.Sandbox

@@ -37,10 +37,11 @@ config :logger, :console, format: "[$level] $message\n"
 config :phoenix, :stacktrace_depth, 20
 
 # Configure your database
+# change these to env variables for docker-compose
 config :api, Api.Repo,
   adapter: Ecto.Adapters.Postgres,
-  username: "postgres",
-  password: "postgres",
-  database: "api_dev",
+  username: "evergreen_db_user",
+  password: "db_password",
+  database: "evergreen_api_dev",
   hostname: "localhost",
   pool_size: 10

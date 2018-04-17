@@ -34,6 +34,10 @@
 - You can also run your app inside IEx (Interactive Elixir) as:
   $ iex -S mix phx.server
 
+- Run tests with
+  $ cd api
+  $ mix test
+
 # Kubernetes setup (optional)
 - brew install kubectl kubernetes-helm cask/caskroom/minikube
 
@@ -41,3 +45,6 @@
 
 - Install react create CLI
   $ yarn global add create-react-app
+
+- Created teams endpoint and db stuff (for examples) with:
+  $ mix phx.gen.json Teams Team teams name:string size:integer dynamics:integer team_size:integer practices:integer
