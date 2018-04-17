@@ -8,12 +8,11 @@ services:
     volumes:
        - pgdata:/var/lib/postgresql/data
 
-  dev:
+  api:
     build: ./api/
-    command: sh -c "mix phoenix.server"
     ports:
       - 4000:4000
-    environment: &ENV
+    environment:
       DATABASE_URL: "ecto://${POSTGRES_USER}:${POSTGRES_PASSWORD}@db/${POSTGRES_DB}"
     volumes:
       - ./api:/usr/src/app
@@ -31,6 +30,19 @@ services:
       #- ./:/usr/src/app
   #links:
     #- db:db
+
+  webapp:
+    build: ./webapp/
+    ports:
+      - 3000:3000
+    environment:
+      API_URL: "http://api"
+    volumes:
+      - ./webapp:/usr/src/app
+    depends_on:
+      - "api"
+    links:
+      - api:api
 
 volumes:
   pgdata:
