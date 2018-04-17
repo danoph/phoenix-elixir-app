@@ -1,7 +1,8 @@
-FROM voidlock/elixir:1.1
+FROM elixir:alpine
 
-# install psql
-RUN apt-get update && apt-get install -y postgresql-client
+RUN apk update \
+    && mix local.rebar --force \
+    && mix local.hex --force
 
 # install mix and rebar
 RUN mix local.hex --force && \
@@ -16,4 +17,4 @@ COPY mix.* /usr/src/app/
 COPY config /usr/src/app/
 RUN mix do deps.get, deps.compile
 
-CMD ["mix", "phoenix.server"]
+CMD ["mix", "phx.server"]
