@@ -72,3 +72,6 @@ $ mix ecto.migrate
 
 - Created teams endpoint and db stuff (for examples) with:
   $ mix phx.gen.json Teams Team teams name:string size:integer dynamics:integer team_size:integer practices:integer
+
+- Install node-sass crap:
+  $ npm rebuild node-sass --force
