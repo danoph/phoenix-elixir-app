@@ -42,7 +42,7 @@ class App extends React.Component {
         </p>
       <pre>
         Teams:
-        { this.state && this.state.teams[0].name }
+        { this.state && this.state.teams.length && this.state.teams[0].name }
       </pre>
       </div>
     );

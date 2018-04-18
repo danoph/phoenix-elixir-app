@@ -34,12 +34,21 @@
 - You can also run your app inside IEx (Interactive Elixir) as:
   $ iex -S mix phx.server
 
+- You can also run your app without a server:
+  $ iex -S mix
+
 - Run tests with
   $ cd api
   $ mix test
 
 # Kubernetes setup (optional)
 - brew install kubectl kubernetes-helm cask/caskroom/minikube
+
+# Set up with docker-compose instrutcions:
+$ mix archive.install https://github.com/phoenixframework/archives/raw/master/phx_new.ez
+$ mix deps.get
+$ mix ecto.migrate
+
 
 # Webapp Setup
 
