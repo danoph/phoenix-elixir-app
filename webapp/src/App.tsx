@@ -5,6 +5,7 @@ import './App.css';
 import logo from './logo.svg';
 
 interface ITeam {
+  id: number;
   dynamics?: number
   name: string
   practices?: number
@@ -19,6 +20,10 @@ class App extends React.Component {
 
   constructor(props: any) {
     super(props);
+
+    this.state = {
+      teams: []
+    }
   }
 
   public componentDidMount() {
@@ -40,11 +45,23 @@ class App extends React.Component {
         <p className="App-intro">
           To get started, edit <code>src/App.tsx</code> and save to reload.
         </p>
-      <pre>
-        Teams:
-        { this.state && this.state.teams.length && this.state.teams[0].name }
-      </pre>
+
+        <p>
+          Teams:
+        </p>
+
+        <ul>
+          { this.state.teams.map(team => this.renderTeam(team)) }
+        </ul>
       </div>
+    );
+  }
+
+  private renderTeam(team: ITeam) {
+    return (
+      <li key={team.id}>
+      { team.name }
+      </li>
     );
   }
 }
