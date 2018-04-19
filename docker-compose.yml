@@ -15,7 +15,7 @@ services:
     environment:
       DATABASE_URL: "ecto://${POSTGRES_USER}:${POSTGRES_PASSWORD}@db/${POSTGRES_DB}"
     volumes:
-      - ./api:/usr/src/app
+      - ./api:/app
     depends_on:
       - "db"
     links:
@@ -38,7 +38,7 @@ services:
     environment:
       API_URL: "http://api"
     volumes:
-      - ./webapp:/usr/src/app
+      - ./webapp:/app
     depends_on:
       - "api"
     links:
