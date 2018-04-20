@@ -75,3 +75,14 @@ $ mix ecto.migrate
 
 - Install node-sass crap:
   $ npm rebuild node-sass --force
+
+
+# Setup Notes for new mac (for daniel) - third mac run:
+
+$ brew install elixir
+$ mix archive.install https://github.com/phoenixframework/archives/raw/master/phx_new.ez
+$ cd api; mix deps.get
+$ cd api; mix ecto.migrate
+$ cd webapp; yarn install
+$ ./webapp/install-node-sass.sh
+$ docker-compose up
