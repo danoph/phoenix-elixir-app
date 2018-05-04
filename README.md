@@ -34,12 +34,36 @@
 - You can also run your app inside IEx (Interactive Elixir) as:
   $ iex -S mix phx.server
 
+- You can also run your app without a server:
+  $ iex -S mix
+
 - Run tests with
   $ cd api
   $ mix test
 
 # Kubernetes setup (optional)
 - brew install kubectl kubernetes-helm cask/caskroom/minikube
+
+# Set up with docker-compose instrutcions:
+$ mix archive.install https://github.com/phoenixframework/archives/raw/master/phx_new.ez
+$ mix deps.get
+$ mix ecto.migrate
+
+
+# Webapp Setup
+
+- Starts the development server.
+  $ cd webapp
+  $ yarn start
+
+- Bundles the app into static files for production.
+  $ yarn build
+
+- Starts the test runner.
+  $ yarn test
+
+- Removes this tool and copies build dependencies, configuration files and scripts into the app directory. If you do this, you can’t go back!
+  $ yarn eject
 
 # Daniel Setup Notes (dont follow these):
 
@@ -48,3 +72,17 @@
 
 - Created teams endpoint and db stuff (for examples) with:
   $ mix phx.gen.json Teams Team teams name:string size:integer dynamics:integer team_size:integer practices:integer
+
+- Install node-sass crap:
+  $ npm rebuild node-sass --force
+
+
+# Setup Notes for new mac (for daniel) - third mac run:
+
+$ brew install elixir
+$ mix archive.install https://github.com/phoenixframework/archives/raw/master/phx_new.ez
+$ cd api; mix deps.get
+$ cd api; mix ecto.migrate
+$ cd webapp; yarn install
+$ ./webapp/install-node-sass.sh
+$ docker-compose up
